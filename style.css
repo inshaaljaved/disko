@@ -116,14 +116,14 @@ body {
 
 .logo-text {
     color: var(--primary-color);
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 750;
     letter-spacing: 2px;
 }
 
 .logo-tagline {
     color: var(--accent-color);
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 4px;
     margin-top: -5px;
 }
@@ -454,12 +454,160 @@ body {
 }
 
 .summer-collection .summer-image img {
-    width: 12rem;
+    width: 100%;
     max-width: 400px;
-    height: 25rem;
+    height: auto;
     border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Center the Explore More Button */
+.explore_more-btn {
+    display: inline-block;
+    margin: 0 auto; /* Center the button horizontally */
+    text-align: center; /* Ensure text inside the button is centered */
+    padding: 0.8rem 2rem;
+    background-color: var(--accent-color);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px; /* Rounded button for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Hover Effect */
+.explore_more-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Ripple Effect */
+.explore_more-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 0;
+}
+
+.explore_more-btn:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Text Layer */
+.explore_more-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Centering the Button in a Parent Container */
+.center-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Adjust height as needed */
+}
+/* Hover Effect */
+.explore_more-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Ripple Effect */
+.explore_more-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 0;
+}
+
+.explore_more-btn:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Text Layer */
+.explore_more-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .explore_more-btn {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .explore_more-btn {
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+/* Responsive Design for Mobile Screens */
+@media (max-width: 768px) {
+    .summer-collection .summer-image img {
+        width: 100%; /* Ensure the image takes up the full width of its container */
+        height: auto; /* Maintain the aspect ratio */
+        max-width: none; /* Remove any maximum width restrictions */
+        border-radius: 8px; /* Keep rounded corners for a modern look */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+
+    .summer-collection {
+        flex-direction: column; /* Stack the image and content vertically */
+        text-align: center; /* Center-align the content */
+        padding: 1rem; /* Add padding for better spacing */
+    }
+
+    .summer-collection .summer-content {
+        margin-top: 1rem; /* Add spacing between the image and content */
+    }
+}
+
+/* Responsive Design for Small Mobile Screens */
+@media (max-width: 480px) {
+    .summer-collection .summer-image img {
+        height: 250px; /* Set a fixed height for smaller screens */
+        width: 150px;
+        object-fit: cover; /* Ensure the image covers the area without distortion */
+    }
+
+    .summer-collection .summer-content h2 {
+        font-size: 1.5rem; /* Adjust font size for better readability */
+    }
+
+    .summer-collection .summer-content p {
+        font-size: 0.9rem; /* Adjust paragraph font size */
+    }
+
+    .summer-collection .shop-now-btn {
+        font-size: 0.85rem; /* Adjust button font size */
+        padding: 0.5rem 1rem; /* Adjust button padding */
+    }
+}
 /* Footer Styles */
 
 /* Responsive Design */
@@ -1796,34 +1944,42 @@ input[type="button"]:disabled,
         padding: 0.6rem 1rem;
     }
 }
-
-/* Responsive Design for Small Mobile Screens */
-@media (max-width: 480px) {
+/* Responsive Design for Very Small Mobile Screens */
+@media (max-width: 415px) {
     .summer_collection-cards {
-        grid-template-columns: 1fr; /* Single column for very small screens */
+        grid-template-columns: 1fr 1fr; /* Two cards per row */
+        gap: 0.5rem; /* Reduce gap for smaller screens */
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+
+    .summer_collection-cards .card {
+        padding: 0.5rem; /* Reduce padding inside the cards */
+        text-align: center;
     }
 
     .summer_collection-cards .card img {
-        height: 120px; /* Adjusted height for smaller screens */
-    }
-
-    .summer_collection-cards .card.large img {
-        height: 200px; /* Adjusted height for the larger card */
+        width: 100%;
+        height: 100px; /* Adjusted height for smaller screens */
+        object-fit: cover; /* Ensures the image fills the card */
+        border-radius: 8px;
     }
 
     .summer_collection-cards .card h3 {
-        font-size: 0.9rem;
+        font-size: 0.8rem; /* Adjust font size for smaller screens */
+        margin: 0.5rem 0;
     }
 
     .summer_collection-cards .card p {
-        font-size: 0.8rem;
+        font-size: 0.7rem; /* Adjust paragraph font size */
+        margin-bottom: 0.5rem;
     }
 
     .summer_collection-cards .card .quick-view-btn {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem; /* Adjust button font size */
+        padding: 0.4rem 0.8rem; /* Adjust button padding */
     }
 }
+
 /* Footer Styles */
 .footer {
     background-color: #333333;
@@ -1858,7 +2014,23 @@ input[type="button"]:disabled,
     font-size: 1rem;
     color: #ff6b6b;
 }
+/* Footer Social Icons */
+.footer-left .social-icons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
 
+.footer-left .social-icons a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-left .social-icons a:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
 .footer-middle {
     flex: 1;
     min-width: 200px;
@@ -2096,4 +2268,293 @@ input[type="button"]:disabled,
     .team-member p {
         font-size: 0.8rem;
     }
+}
+/* About Page Heading */
+.about-heading {
+    font-size: 3rem; /* Large font size for the heading */
+    font-weight: 700; /* Bold font weight */
+    color: var(--primary-color); /* Use primary color for the text */
+    text-align: center; /* Center-align the heading */
+    margin-top: 2rem; /* Add spacing at the top */
+    margin-bottom: 2rem; /* Add spacing below the heading */
+    text-transform: uppercase; /* Make the text uppercase */
+    letter-spacing: 2px; /* Add spacing between letters */
+    position: relative; /* For decorative elements */
+}
+
+/* Decorative Line Below the Heading */
+.about-heading::after {
+    content: '';
+    display: block;
+    width: 100px; /* Width of the decorative line */
+    height: 4px; /* Height of the decorative line */
+    background-color: var(--accent-color); /* Accent color for the line */
+    margin: 1rem auto 0; /* Center the line and add spacing */
+    border-radius: 2px; /* Rounded edges for the line */
+}
+/* About Description Section */
+.about-description {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.about-description .highlight {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    text-align: justify;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.about-list-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.about-list li {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.about-list li:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+.about-text {
+    font-size: 1.3rem; /* Slightly larger font size for better readability */
+    line-height: 2; /* Increased line height for improved spacing */
+    color: var(--text-color); /* Use the main text color */
+    text-align: justify; /* Justify the text for a clean and professional look */
+    margin-bottom: 2rem; /* Add more spacing below the text */
+    padding: 0 1.5rem; /* Add horizontal padding for better alignment */
+    font-weight: 400; /* Normal font weight for a balanced appearance */
+    background-color: var(--light-gray); /* Subtle background for emphasis */
+    border-left: 4px solid var(--accent-color); /* Add a decorative left border */
+    padding-left: 1rem; /* Add padding to separate the text from the border */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+/* About Section */
+.about-section {
+    padding: 4rem 2rem;
+    background-color: var(--light-gray);
+    text-align: center;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+}
+
+.contact-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-subheading {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.contact-form, .contact-details {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2, .contact-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.contact-form .form-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--accent-hover);
+}
+
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-details ul li {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.contact-details .social-media a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-details .social-media a:hover {
+    color: var(--accent-color);
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 4rem 2rem;
+    background-color: #fff;
+}
+
+.faq-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.faq-subheading {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+}
+
+.faq-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq-questions {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.faq-item {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.faq-item:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.faq-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.faq-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
