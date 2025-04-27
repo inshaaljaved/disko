@@ -454,11 +454,10 @@ body {
 }
 
 .summer-collection .summer-image img {
-    width: 100%;
+    width: 12rem;
     max-width: 400px;
-    height: auto;
+    height: 25rem;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer Styles */
